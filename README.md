@@ -7,6 +7,9 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # type-check + production build into dist/
 ```
+![Alt Text](/screenshot/01_workshop_en.png)
+![Alt Text](/screenshot/02_new_inspect_zh.png)
+![Alt Text](/screenshot/03_knot_studio_screenshot.jpg)
 
 ## What you can do
 
@@ -15,7 +18,7 @@ npm run build      # type-check + production build into dist/
 | Orbit / zoom | drag / scroll (360° in Showcase, above-the-table in Workshop / Inspect) |
 | Select a bead, knot or tassel | click it (warm halo + lift) |
 | Slide a piece | drag it — it stays threaded and can move between the main cord and the clasp tails |
-| Add beads / knots | click a card in the left tray, or **drag the card onto the piece** (tails included) |
+| Add beads / knots | click a component card in the left tray, or **drag the card onto the piece** (tails included) |
 | Edit a bead | colour, material, shape, size — choosing pearl forces a round pearl, crystal forces faceted |
 | Edit a knot | style, repeat (where allowed), colour, thread; book steps shown under each knot |
 | Tassel 流苏 | in the Knots tab: fringe length, silk colour, band colour; one per spot (repeat 1), use Duplicate |
@@ -26,15 +29,11 @@ npm run build      # type-check + production build into dist/
 | Snapshot 快照 | camera button saves the current view + full design; ▾ opens the list to reload a design or download the image |
 | Views | `1` Workshop 工作台 · `2` Inspect 端详 · `3` Showcase 展示 |
 
-On load the camera holds a three-quarter glance across the tray (with "Setting out the tray…"), then
-glides to a square-on seat at the desk: the tray's front and back rails stay horizontal and the piece
-sits in the middle of the uncovered area between the two side panels.
-
 ## Code structure
 
 ```
 src/
-  data/            pure design data — no three.js
+  data/              design data
     types.ts         Design, BeadItem, KnotItem, CordSpec …
     materials.ts     Material Library (bead PBR presets, cord/thread presets, palettes)
     catalog.ts       component catalogue: bead shapes, knot styles, endings, presets
@@ -60,11 +59,6 @@ src/
   ui/                Library (tray), Inspector, 3D thumbnails (thumbs.ts), swatches & icons
 ```
 
-The key separation: **`Design` is plain data** (positions are a 0–1 fraction along the loop; sizes in mm).
-`computeLayout()` turns it into arc-length placements; components turn placements into meshes. The same
-data will feed the round-2 *Generate Tutorial* step (bead counts, knot order, cord length are already
-derived in the Summary panel).
-
 ## Rendering & material choices
 - **Beads.** One geometry per silhouette, many materials. `MeshPhysicalMaterial` with transmission + IOR +
   attenuation for glass, crystal (flat-shaded facets + dispersion + iridescence), jade/agate (partial
@@ -81,7 +75,7 @@ derived in the Summary panel).
 - **Showcase** lifts the bracelet off the tray, tilts it toward the camera, fades in a bright cream sweep,
   adds a soft studio key/fill and slowly turns — the "hold it up to the light" moment, without a hand.
 
-## Knots and the book
+## Reference
 
 Each knot in `data/catalog.ts` carries the step text from 《中国结一本通》, and `three/knotGeometry.ts`
 builds its strands as data:
