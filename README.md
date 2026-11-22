@@ -69,7 +69,7 @@ src/
   into the albedo/metal maps for 加金线. Anisotropy + sheen give the satin cord its soft sheen. Two strands
   lie side by side and gather/rise to pass through each bead's centre.
 - **Knots** are generated from strand centre-lines (diamond 金刚结, square 平结 and spiral 单向平结, snake 蛇结,
-  snake-belly braid 蛇腹结, double connection 双联结, butterfly 蝴蝶结, button knot 纽扣结). Because each knot is a
+  snake-belly braid 蛇腹结, double connection 双联结, button knot 纽扣结). Because each knot is a
   set of curves, round 2 can animate the cord path step by step (draw-on along the curve, slow-mo, reverse),
   following the Macrame911 / Knots 3D idea that diagrams come from data rather than from images.
 - **Showcase** lifts the bracelet off the tray, tilts it toward the camera, fades in a bright cream sweep,
